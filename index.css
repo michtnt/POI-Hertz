@@ -1,0 +1,54 @@
+/*global*/
+p, h1 {
+    font-family: "arial"
+}
+
+/*class*/
+/*margin: top right bottom left*/
+.header{
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 20px 20px 20px 20px; 
+    flex-grow: 1;
+    width: 100vw;
+    height: 50px;
+    color: "black";
+}
+
+.main{
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+    margin: 10px 10px 10px 10px;
+    width: 100vw;
+    color: "black";
+}
+
+.car-img-container{
+    max-width: 300px;
+    height: auto;
+    left: 0px;
+    right: 0px;
+}
+
+/*https://codepen.io/sdthornton/pen/wBZdXq*/
+.card{
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  /*height: 300px;*/
+  /*margin: 1rem;*/
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  /*position: relative;*/
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

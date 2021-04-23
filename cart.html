@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            let a = sessionStorage.getItem('hertz@cart');
+            console.log("a", JSON.parse(a))
+        });
+    </script>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <p>Hertz-UTS</p>
+            <p>Car Rental Center</p>
+            <button>View Reservation</button>
+        </div>
+    </body>
+</html>

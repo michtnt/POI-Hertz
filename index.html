@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        let cars_arr = []
+        let shopping_cart = [] 
+        // use AJAX?
+        // TOCHANGE
+        $(document).ready(function(){
+            $.getJSON("cars.json", function(result){
+                cars_arr = result;
+                console.log("cars array", cars_arr)
+              $.each(result, function(i, field){
+                  console.log(`field ${i}`, field)
+                  let carComponent = 
+                  `
+                   <div class="card card-1">
+                    <div class="car-img-container"><img style="width:300px;height:300px;" src=${field.img} alt="${field.brand} ${field.model}"></div>
+                    <h1>${field.brand}-${field.model}-${field.model_year}</h1>
+                    <p><b>mileage: </b>${field.mileage}</p>
+                    <p><b>fuel type: </b>${field.fuel_type}</p>
+                    <p><b>seats: </b>${field.seats}</p>
+                    <p><b>price/day: </b>${field.price_per_day}</p>
+                    <p><b>availability: </b>${field.availability}</p>
+                    <br />
+                    <p><b>description: </b>${field.description}</p>
+                    <br /><br />
+                    <button onClick="addCart(${field.id})">Add to cart</button>
+                   </div>
+                  `
+                  $(".main").append(carComponent);
+              });
+            });
+        });
+        
+        function addCart(id){
+            // use AJAX to check?
+            // TOCHANGE
+            let car = cars_arr.find(car => car.id == id)
+            if(car.availability == "Y"){
+                shopping_cart.push(car)
+                console.log("shopping_cart", shopping_cart)
+                alert(`${car.brand} ${car.model} Added to cart successfully`)
+                return true
+            }
+            alert(`Sorry ${car.brand} ${car.model} is not available now. Please rent other cars.`)
+            return false
+        }
+        
+        function checkCart(){
+             sessionStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
+            window.location.href="cart.html"
+        }
+        
+    </script>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <p>Hertz-UTS</p>
+            <p>Car Rental Center</p>
+            <button onClick="checkCart()">View Reservation</button>
+        </div>
+        <!--Car list-->
+        <div class="main"></div>
+    </body>
+</html>
