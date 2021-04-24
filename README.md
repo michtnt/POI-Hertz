@@ -14,3 +14,7 @@ or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
 Happy coding!
 
 - [] Add more cars to cars.json
+- [] might need to change to AJAX?
+- [] amount * price
+- [] session issue https://stackoverflow.com/questions/11526643/session-lost-window-location-href
+- [] improve css

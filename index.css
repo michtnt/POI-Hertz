@@ -1,5 +1,5 @@
 /*global*/
-p, h1 {
+p, h1, h3 {
     font-family: "arial"
 }
 
@@ -51,4 +51,40 @@ p, h1 {
 
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.car-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-reservation {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
