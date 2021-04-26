@@ -4,63 +4,77 @@
     <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        let cars_arr = []
-        let shopping_cart = [] 
-        // use AJAX?
-        // TOCHANGE
+        let cars_arr = [] // store cars.json
+        let shopping_cart = [] // store shopping cart
+        // TOCHANGE: use AJAX?
         $(document).ready(function(){
+            console.log("localStorage", window.localStorage.getItem("hertz@cart"))
             $.getJSON("cars.json", function(result){
                 cars_arr = result;
-                console.log("cars array", cars_arr)
               $.each(result, function(i, field){
-                  console.log(`field ${i}`, field)
+                  // list cars on main page
                   let carComponent = 
                   `
                    <div class="card card-1">
-                    <div class="car-img-container"><img style="width:300px;height:300px;" src=${field.img} alt="${field.brand} ${field.model}"></div>
-                    <h1>${field.brand}-${field.model}-${field.model_year}</h1>
-                    <p><b>mileage: </b>${field.mileage}</p>
-                    <p><b>fuel type: </b>${field.fuel_type}</p>
-                    <p><b>seats: </b>${field.seats}</p>
-                    <p><b>price/day: </b>${field.price_per_day}</p>
-                    <p><b>availability: </b>${field.availability}</p>
+                    <div class="car-img-container"><img style="width:350px;height:350px;" src=${field.img} alt="${field.brand} ${field.model}"></div>
+                    <p style="font-size:30px">${field.brand}-${field.model}-${field.model_year}</p>
+                    <p><b>Mileage: </b>${field.mileage} kms</p>
+                    <p><b>Fuel Type: </b>${field.fuel_type}</p>
+                    <p><b>Seats: </b>${field.seats}</p>
+                    <p><b>Price/day: </b>${field.price_per_day}</p>
+                    <p><b>Availability: </b>${field.availability}</p>
                     <br />
-                    <p><b>description: </b>${field.description}</p>
+                    <p><b>Description: </b>${field.description}</p>
                     <br /><br />
-                    <button onClick="addCart(${field.id})">Add to cart</button>
+                    <button class="button button-add" onClick="addCart(${field.id})">Add to cart</button>
                    </div>
                   `
                   $(".main").append(carComponent);
-              });
+                });
             });
         });
         
+        // add cars to shopping cart
         function addCart(id){
-            // use AJAX to check?
-            // TOCHANGE
+            // TOCHANGE: use AJAX to check?
+            // find the car in cars.json
             let car = cars_arr.find(car => car.id == id)
-            if(car.availability == "Y"){
+            // find the cart in shopping cart
+            let cart = shopping_cart.find(car => car.id == id)
+            // default message: car not available
+            let message = `Sorry ${car.brand} ${car.model} is not available now. Please rent other cars.`;
+            
+            // if there is availability
+            if(car.availability == "True"){
+                // push to shopping cart
                 shopping_cart.push(car)
                 console.log("shopping_cart", shopping_cart)
-                alert(`${car.brand} ${car.model} Added to cart successfully`)
-                return true
+                message = `${car.brand} ${car.model} added to cart successfully!`
             }
-            alert(`Sorry ${car.brand} ${car.model} is not available now. Please rent other cars.`)
-            return false
+            // if it was already on shopping cart
+            if(cart){
+                message = `Sorry you have added ${cart.brand} ${cart.model} in your cart before.`
+            }
+            
+            alert(message)
+            return true
         }
         
+        // conitnue to cart
         function checkCart(){
-             sessionStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
+            // set storage
+            window.localStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
+            // move to cart.html
             window.location.href="cart.html"
         }
         
     </script>
-    <body>
+    <body style="background-color:#edf6f9">
         <!--Header-->
         <div class="header">
-            <p>Hertz-UTS</p>
-            <p>Car Rental Center</p>
-            <button onClick="checkCart()">View Reservation</button>
+            <div><p style="color:black;font-size:20px;">Hertz-UTS</p></div>
+            <div><p style="color:black;font-size:20px;">Car Rental Center</p></div>
+            <div><button class="button button-rsv" onClick="checkCart()">View Reservation</button></div>
         </div>
         <!--Car list-->
         <div class="main"></div>

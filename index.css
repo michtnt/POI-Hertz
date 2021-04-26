@@ -1,18 +1,44 @@
 /*global*/
-p, h1, h3 {
+p, h1, h3, h4, label {
     font-family: "arial"
 }
 
 /*class*/
 /*margin: top right bottom left*/
 .header{
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
-    margin: 20px 20px 20px 20px; 
-    flex-grow: 1;
-    width: 100vw;
+    padding: 20px 20px 20px 20px; 
+    /*flex-grow: 1;*/
+    width: 100%;
     height: 50px;
-    color: "black";
+    background-color: #83c5be;
+}
+
+.button{
+  background-color: #006d77;
+  border-style: none;
+}
+
+.button.button-rsv {
+  height: 50px;
+  width: 200px;
+  color: white;
+  border-radius: 25px;
+}
+
+.button.button-add {
+  height: 50px;
+  width: 100px;
+  color: white;
+  border-radius: 25px;
+}
+
+.button.button-delete {
+  height: 30px;
+  width: 80px;
+  color: white;
+  border-radius: 25px;
 }
 
 .main{
@@ -41,7 +67,7 @@ p, h1, h3 {
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
   /*position: relative;*/
-  width: 300px;
+  width: 400px;
 }
 
 .card-1 {
@@ -87,4 +113,14 @@ p, h1, h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.checkout-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
 }
