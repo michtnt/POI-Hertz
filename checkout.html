@@ -6,7 +6,7 @@
     <script type="text/javascript">
         let cart;
         $(document).ready(function(){
-            let total = window.localStorage.getItem("hertz@total")
+            let total = window.sessionStorage.getItem("hertz@total")
             $(".total").append(`<h3>Total: ${total}</h3>`)
         })
         
@@ -22,7 +22,7 @@
                 alert("Purchase is Successful!")
                 // reload page
                 window.location.href="/"
-                window.localStorage.clear();
+                window.sessionStorage.clear();
               } else{
                 alert("Invalid email!")
               }

@@ -5,7 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         let cars_arr = [] // store cars.json
-        let shopping_cart = window.localStorage.getItem("hertz@cart") ? JSON.parse(window.localStorage.getItem("hertz@cart")) : [] // store shopping cart
+        let shopping_cart = window.sessionStorage.getItem("hertz@cart") ? JSON.parse(window.sessionStorage.getItem("hertz@cart")) : [] // store shopping cart
         // TOCHANGE: use AJAX?
         $(document).ready(function(){
             $.getJSON("cars.json", function(result){
@@ -60,7 +60,7 @@
         // conitnue to cart
         function checkCart(){
             // set storage
-            window.localStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
+            window.sessionStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
             // move to cart.html
             window.location.href="cart.html"
         }

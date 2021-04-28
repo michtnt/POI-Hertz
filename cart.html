@@ -7,8 +7,8 @@
         let cart; // current cart
         let total_cart=0
         $(document).ready(function(){
-            // get localstorage
-            cart = JSON.parse(localStorage.getItem('hertz@cart'));
+            // get sessionStorage
+            cart = JSON.parse(sessionStorage.getItem('hertz@cart'));
             console.log("shopping cart", cart)
             for(let i=0; i < cart.length; i++){
                 let cartComponent = 
@@ -35,7 +35,7 @@
             // filter removed car
             cart = cart.filter(car => car.id != id)
             // re-set storage
-            window.localStorage.setItem('hertz@cart', cart)
+            window.sessionStorage.setItem('hertz@cart', JSON.stringify(cart))
             // remove html
             document.getElementById(`${id}`).innerHTML = ""
         }
@@ -49,7 +49,7 @@
                 let value = validate(inputClasses)
                 if(value){
                     window.location.href=`checkout.html`
-                    window.localStorage.setItem("hertz@total", value)
+                    window.sessionStorage.setItem("hertz@total", value)
                 }
             }
         }
