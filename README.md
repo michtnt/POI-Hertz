@@ -16,6 +16,6 @@ Happy coding!
 - [x] Add more cars to cars.json
 - [] might need to change to AJAX?
 - [] amount * price (subtotal?)
-- [] use PHP session?
+- [] change localstorage to session?
 - [x] session issue https://stackoverflow.com/questions/11526643/session-lost-window-location-href
 - [x] improve css
