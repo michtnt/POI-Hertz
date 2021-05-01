@@ -18,14 +18,12 @@
                     <div><p>${cart[i].model_year}-${cart[i].brand}-${cart[i].model}</p></div>
                     <div><p>${cart[i].price_per_day}</p></div>
                     <div><input value="1" min="0" type="number" id="car-input-${cart[i].id}" class="car-input"></div>
-                    <div>TODO</div>
                     <div><button class="button button-delete" onClick="deleteItem(${cart[i].id})">Delete</button></div>
                  </div>
                 `
                 $(".main-reservation").append(cartComponent)
-                total_cart += document.getElementById(`car-input-${cart[i].id}`).value * cart[i].price_per_day
             }
-            $(".total-num").append(`<p>Total: ${total_cart}</p>`)
+            // $(".total-num").append(`<p>Total: ${total_cart}</p>`)
             if(cart.length > 0){ // there is something in cart: show checkout button
                 $(".checkout-button").append(`<button class="button button-add" onClick="checkout()">Checkout</button>`)
             }

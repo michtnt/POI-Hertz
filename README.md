@@ -14,8 +14,6 @@ or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
 Happy coding!
 
 - [x] Add more cars to cars.json
-- [] might need to change to AJAX?
-- [] amount * price (subtotal?)
-- [] change localstorage to session?
+- [x] change localstorage to session? [TO_REVIEW]
 - [x] session issue https://stackoverflow.com/questions/11526643/session-lost-window-location-href
-- [x] improve css
+- [x] improve cssxs
